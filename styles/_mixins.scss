@@ -1,0 +1,93 @@
+@mixin flex($direction: row, $align-items: center, $justify-content: center) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+@mixin align-box($top: 50%, $left: 50%) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  transform: translate(-50%, -50%);
+}
+
+@mixin box($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin position($x-axis: 50%, $y-axis: 50%, $top: 100%, $left: 100%, $top-arrow: 50%, $left-arrow: 50%, $rotate: 0deg) {
+  &::after {
+    transform: translate($x-axis, $y-axis);
+    top: $top;
+    left: $left;
+  }
+  &::before {
+    transform: translate($x-axis, $y-axis) rotate($rotate);
+    top: $top-arrow;
+    left: $left-arrow;
+  }
+}
+
+@mixin larger_desktop {
+  @media (min-width: 1536px) {
+    @content;
+  }
+}
+@mixin l_desktop {
+  @media (max-width: 1536px) {
+    @content;
+  }
+}
+
+@mixin m_desktop {
+  @media (max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin s_desktop {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin l_tablet {
+  @media (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin m_tablet {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin sm_tablet {
+  @media (min-width: 601px) and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin s_tablet {
+  @media (max-width: 550px) {
+    @content;
+  }
+}
+@mixin l_mobile {
+  @media (max-width: 425px) {
+    @content;
+  }
+}
+@mixin m_mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+@mixin s_mobile {
+  @media (max-width: 350px) {
+    @content;
+  }
+}
