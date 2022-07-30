@@ -1,24 +1,138 @@
 @import "/styles/index.scss";
 
 .container {
+  width: 100vw;
   height: 100vh;
+  @include flex();
+  @include s_desktop {
+    @include flex(column, center, flex-start);
+  }
+  .main_container {
+    max-width: 864px;
+    height: 100vh;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    @include flex(column, flex-start, space-between);
+  }
   main {
     background-color: $bg-light;
     width: 60%;
-    height: inherit;
     padding: 0 4rem;
-    @include flex();
+    @include flex(column, flex-start, space-between);
+    @include s_desktop {
+      width: 100vw;
+    }
+    @include s_tablet {
+      padding: 0 2rem;
+    }
     h1 {
       color: $bg-color;
       margin-top: 0;
+      margin-bottom: 2rem;
       font-size: 5rem;
       width: 80%;
       font-weight: bold;
+      @include s_tablet {
+        font-size: 4rem;
+        width: 100%;
+      }
+      @include l_mobile {
+        font-size: 3rem;
+      }
     }
   }
   &_btn {
     &_login {
       margin-right: 2rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+  &_developer {
+    font-size: 1.2rem;
+    color: $bg-color;
+    a {
+      color: $primary-color;
+      @include underline-animation;
+      cursor: pointer;
+    }
+  }
+  aside {
+    width: 40%;
+    height: 100%;
+    @include flex(column, center, center);
+    @include s_desktop {
+      display: none;
+    }
+    .aside_container {
+      max-width: 576px;
+      margin-right: auto;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+    section {
+      img {
+        border-radius: 20px;
+      }
+    }
+    .part_one {
+      @include flex();
+    }
+    .adele_cover {
+      margin-left: -140px;
+      width: 280px;
+      height: 280px;
+      position: relative;
+      @include m_desktop {
+        width: 250px;
+        height: 250px;
+      }
+    }
+    .country_cover {
+      margin-left: 80px;
+      margin-right: 4rem;
+      margin-top: 80px;
+      width: 230px;
+      height: 230px;
+      position: relative;
+      @include m_desktop {
+        width: 180px;
+        height: 180px;
+        margin-left: 50px;
+      }
+    }
+    .nf_cover {
+      margin-left: -40px;
+      margin-top: 40px;
+      width: 280px;
+      height: 280px;
+      position: relative;
+      @include m_desktop {
+        width: 250px;
+        height: 250px;
+      }
+      img {
+        border-bottom: 0.5rem solid yellow !important;
+      }
+      &_text {
+        position: absolute;
+        left: 18px;
+        bottom: 15%;
+        z-index: 2;
+        font-size: 1.2rem;
+        font-weight: 500;
+        &::before {
+          content: "";
+          position: absolute;
+          left: -18px;
+          width: 0.5rem;
+          height: 140%;
+          top: 50%;
+          transform: translateY(-50%);
+          background: yellow;
+          z-index: 2;
+        }
+      }
     }
   }
 }
