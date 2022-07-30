@@ -17,6 +17,20 @@
   height: $height;
 }
 
+@mixin Montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+@mixin underline-animation {
+  background: linear-gradient(currentColor 0 0) 0 100% /var(--d, 0) 1.5px no-repeat;
+  transition:0.5s;
+  // margin: 0;
+  &:hover {
+    opacity: 100%;
+    --d: 100%;
+  }
+}
+
 @mixin position($x-axis: 50%, $y-axis: 50%, $top: 100%, $left: 100%, $top-arrow: 50%, $left-arrow: 50%, $rotate: 0deg) {
   &::after {
     transform: translate($x-axis, $y-axis);

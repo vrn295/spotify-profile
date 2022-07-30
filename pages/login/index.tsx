@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 const Login = () => {
 
   const openLogin = () => {
@@ -19,9 +21,13 @@ const Login = () => {
     window.location.href = url
   }
 
+  useEffect(() => {
+    openLogin()
+  }, [])
+  
+
   return (
     <div>
-      <button onClick={openLogin}>Login</button>
     </div>
   )
 }
