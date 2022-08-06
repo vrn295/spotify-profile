@@ -1,3 +1,5 @@
 export enum ERoutes {
-  LOGIN = "/login"
+  HOMEPAGE = '/',
+  LOGIN = "/login",
+  PROFILE = '/profile'
 }

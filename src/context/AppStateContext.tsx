@@ -2,9 +2,9 @@
 import { createContext, FC, ReactNode, useState } from 'react'
 import { AppStateContextType, UserData } from '../model'
 import noop from 'lodash/noop'
-import { getUserData } from '../services/ServiceProfile'
 import { useRouter } from 'next/router'
 import { ERoutes } from '../constants/Routes'
+import { getUserData } from '../services/services'
 
 interface IAppStateContextStore {
   children: ReactNode
