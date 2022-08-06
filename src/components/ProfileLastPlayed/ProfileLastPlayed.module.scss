@@ -1,0 +1,12 @@
+@import "/styles/index.scss";
+
+.profile_last_played {
+  &_img {
+    width: 40vw;
+    height: 40vw;
+    position: relative;
+    img {
+      border-radius: 8px;
+    }
+  }
+}

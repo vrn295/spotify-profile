@@ -1,0 +1,26 @@
+@import "/styles/index.scss";
+
+.container {
+  @include flex(row, center, flex-start);
+  background: rgba($color: $bg-light, $alpha: 0.1);
+  padding: 0.8rem;
+  border-radius: 8px;
+  &:not(&:last-child) {
+    margin-bottom: 2rem;
+  }
+  img {
+    border-radius: 5px;
+  }
+  main {
+    margin-left: 1rem;
+    h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+    p {
+      margin: 0;
+      font-size: 0.75rem;
+    }
+  }
+}

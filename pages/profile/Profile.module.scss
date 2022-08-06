@@ -1,0 +1,25 @@
+@import "/styles/index.scss";
+
+.container {
+  &_main {
+    height: 200px;
+    background: linear-gradient(rgb(200, 8, 24), $bg-color);
+    position: relative;
+    margin-bottom: 10rem;
+  }
+  .profile {
+    &_songs {
+      padding: 0 4rem;
+      margin-bottom: 10rem;
+    }
+    &_section_2 {
+      @include flex(row, center, space-between);
+      width: 90vw;
+      margin: auto;
+      margin-top: 5rem;
+      h2 {
+        font-weight: 400;
+      }
+    }
+  }
+}

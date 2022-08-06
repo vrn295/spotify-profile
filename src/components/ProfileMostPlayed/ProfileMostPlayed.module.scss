@@ -1,0 +1,10 @@
+@import "/styles/index.scss";
+
+.profile_most_played {
+  &_container {
+    width: 40vw;
+  }
+  height: 40vw;
+  max-height: 40vw;
+  overflow: scroll;
+}

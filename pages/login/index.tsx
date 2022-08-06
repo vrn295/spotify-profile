@@ -4,12 +4,12 @@ const Login = () => {
 
   const openLogin = () => {
     var client_id = '44e5be0478d34eb799c8af33aad00e86';
-    var redirect_uri = 'http://localhost:3000/login';
+    var redirect_uri = 'http://localhost:3000/profile';
 
     // var state = generateRandomString(16);
 
     // localStorage.setItem(stateKey, state);
-    var scope = 'user-read-private user-read-email';
+    var scope = 'user-read-private user-read-email user-top-read';
 
     var url = 'https://accounts.spotify.com/authorize';
     url += '?response_type=token';
