@@ -31,6 +31,15 @@
   }
 }
 
+@mixin underline-animation-custom($height: 1.5px, $color: currentColor) {
+  background: linear-gradient($color 0 0) 0 100% /var(--d, 0) $height no-repeat;
+  transition:0.5s;
+  &:hover {
+    opacity: 100%;
+    --d: 80%;
+  }
+}
+
 @mixin position($x-axis: 50%, $y-axis: 50%, $top: 100%, $left: 100%, $top-arrow: 50%, $left-arrow: 50%, $rotate: 0deg) {
   &::after {
     transform: translate($x-axis, $y-axis);
@@ -41,6 +50,14 @@
     transform: translate($x-axis, $y-axis) rotate($rotate);
     top: $top-arrow;
     left: $left-arrow;
+  }
+}
+
+@mixin remove-scroll {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+  &::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
   }
 }
 

@@ -1,0 +1,90 @@
+@import "/styles/index.scss";
+
+.container {
+  @include flex(row, center, space-between);
+  background: rgba($color: $bg-light, $alpha: 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+  user-select: none;
+  &::before {
+    content: "";
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    border-radius: 20px;
+    top: 0;
+    left: -20px;
+    background: rgba($color: $bg-color, $alpha: 0.75);
+    transition: 0.4s ease-in-out;
+  }
+  &:hover {
+    &::before {
+      width: 120%;
+    }
+  }
+  &_main {
+    @include flex(row, center, flex-start);
+    z-index: 1;
+  }
+  &:not(&:last-child) {
+    margin-bottom: 2rem;
+  }
+  img {
+    border-radius: 5px;
+  }
+  main {
+    margin-left: 1rem;
+    h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      width: fit-content;
+      @include underline-animation-custom(4px, yellow)
+    }
+    p {
+      margin: 0;
+      font-size: 0.75rem;
+      width: fit-content;
+      @include underline-animation-custom(2px, yellow)
+    }
+  }
+  &_play_btn {
+    z-index: 1;
+    button {
+      @include flex();
+      cursor: pointer;
+      font-size: 2rem;
+      color: $bg-light;
+      position: relative;
+      &:active {
+        &::after {
+          animation-name: scale-button;
+          animation-duration: 0.1s;
+        }
+      }
+      &::after {
+        content: '';
+        @include align-box();
+        background-color: rgba($primary-color, 0.25);
+        width: 0%;
+        height: 0%;
+        border-radius: 50%;
+        z-index: -1;
+      }
+    }
+  }
+}
+
+@keyframes scale-button {
+  0% {
+    width: 0%;
+    height: 0%;
+  }
+  100% {
+    width: 150%;
+    height: 150%;
+  }
+}

@@ -1,0 +1,25 @@
+@import "/styles/index.scss";
+
+.profile_most_played {
+  &_container {
+    max-width: 48rem;
+    width: 40vw;
+  }
+  height: 40vw;
+  max-height: 40vw;
+  max-width: 48rem;
+  max-height: 48rem;
+  overflow: scroll;
+  @include remove-scroll;
+}
+
+.container {
+  @include flex(row, center, space-between);
+  width: 85vw;
+  max-width: 102rem;
+  margin: auto;
+  margin-top: 5rem;
+  h2 {
+    font-weight: 400;
+  }
+}

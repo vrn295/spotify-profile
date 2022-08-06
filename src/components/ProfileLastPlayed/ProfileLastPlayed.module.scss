@@ -1,0 +1,78 @@
+@import "/styles/index.scss";
+
+.profile_last_played {
+  &_img {
+    width: 40vw;
+    height: 40vw;
+    max-width: 48rem;
+    max-height: 48rem;
+    position: relative;
+    position: relative;
+    &::before {
+      content: "";
+      @include align-box;
+      width: 0%;
+      height: 0%;
+      background-color: rgba($color: $bg-color, $alpha: 0.2);
+      z-index: 1;
+      transition: 0.25s ease-in-out;
+      border-radius: 50%;
+    }
+    &:hover {
+      &::before {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+      }
+      .profile_last_played_play {
+        button {
+          font-size: 8rem;
+        }
+      }
+    }
+    img {
+      border-radius: 8px;
+    }
+  }
+  &_play {
+    button {
+      transition: 0.25s ease-in-out;
+      font-size: 0rem;
+      z-index: 2;
+      @include align-box;
+      cursor: pointer;
+      color: $bg-light;
+      @include flex();
+    }
+  }
+  main {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 1.25rem;
+    z-index: 5;
+    &::before {
+      content: "";
+      width: 0.5rem;
+      height: 110%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -1.25rem;
+      background-color: yellow;
+    }
+    h3 {
+      font-size: 1.8rem;
+      margin: 0;
+      margin-bottom: 0.5rem;
+      text-shadow: 4px 4px 4px rgba($bg-color, 0.5);
+      @include underline-animation-custom(6px, yellow);
+    }
+    p {
+      width: fit-content;
+      margin: 0;
+      font-size: 1rem;
+      text-shadow: 3px 3px 3px rgba($bg-color, 0.5);
+      @include underline-animation-custom(3px, yellow);
+    }
+  }
+}
