@@ -30,7 +30,7 @@ export const AppStateContextStore:FC<IAppStateContextStore>= ({ children }) => {
       setuserData(result?.data)
       setisLoading(false)
     } catch (e: any) {
-      console.log("Error", e.response.data.error.message)
+      console.log("Error", e?.response?.data?.error?.message)
       setisLoading(false)
       router.push(ERoutes.LOGIN)
     }
