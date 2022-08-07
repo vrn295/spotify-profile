@@ -7,8 +7,6 @@ import { getUserData } from "../../src/services/services";
 const Login = () => {
   const router = useRouter()
   const openLogin = () => {
-    var client_id = '44e5be0478d34eb799c8af33aad00e86';
-    var redirect_uri = 'http://localhost:3000/login';
 
     function generateRandomString(length) {
       var result = '';
@@ -28,10 +26,10 @@ const Login = () => {
 
     var url = 'https://accounts.spotify.com/authorize';
     url += '?response_type=token';
-    url += '&client_id=' + encodeURIComponent(client_id);
+    url += '&client_id=' + encodeURIComponent(process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID);
     url += '&scope=' + encodeURIComponent(scope);
     url += '&show_dialog=true';
-    url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
+    url += '&redirect_uri=' + encodeURIComponent(`${process.env.NEXT_PUBLIC_WEB_URL}/login`);
     url += '&state=' + encodeURIComponent(state);
     window.location.href = url
   }

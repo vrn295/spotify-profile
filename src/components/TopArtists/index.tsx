@@ -30,8 +30,8 @@ const TopArtists = () => {
       <h2>Top Artists</h2>
       <div className={styles.profile_top_artist_imgs}>
         {
-          (topArtists?.items || [...Array(15)])?.map((item: ArtistItem) => (
-            <a className={styles.profile_top_artist_list} key={item?.id} href={item?.external_urls?.spotify} target="_blank">
+          (topArtists?.items || [...Array(15)])?.map((item: ArtistItem, index) => (
+            <a className={styles.profile_top_artist_list} key={item?.id || index} href={item?.external_urls?.spotify} target="_blank">
               <Loader isLoading={isLoading}>
                 <div className={styles.profile_top_artist_img}>
                   <Image
