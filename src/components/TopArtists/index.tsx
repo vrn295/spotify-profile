@@ -25,25 +25,23 @@ const TopArtists = () => {
     }
   }
 
-  console.log("topArtists", topArtists)
-
   return (
     <section className={styles.profile_top_artist}>
       <h2>Top Artists</h2>
       <div className={styles.profile_top_artist_imgs}>
         {
           (topArtists?.items || [...Array(15)])?.map((item: ArtistItem) => (
-            <a className={styles.profile_top_artist_img} key={item?.id} href={item?.external_urls?.spotify} target="_blank">
+            <a className={styles.profile_top_artist_list} key={item?.id} href={item?.external_urls?.spotify} target="_blank">
               <Loader isLoading={isLoading}>
-                <Image
-                  src={item?.images[0]?.url || '/images/home/adele_cover.jpg'}
-                  width='140'
-                  height='140'
-                  layout="fixed"
-                  objectFit="cover"
-                  placeholder='blur'
-                  blurDataURL={item?.images[0]?.url || '/images/home/adele_cover.jpg'}
-                />
+                <div className={styles.profile_top_artist_img}>
+                  <Image
+                    src={item?.images[0]?.url || '/images/home/adele_cover.jpg'}
+                    layout="fill"
+                    objectFit="cover"
+                    placeholder='blur'
+                    blurDataURL={item?.images[0]?.url || '/images/home/adele_cover.jpg'}
+                  />
+                </div>
               </Loader>
               <div className={styles.profile_top_artist_name}>
                 <Loader isLoading={isLoading}>
