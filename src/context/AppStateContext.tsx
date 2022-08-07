@@ -26,11 +26,9 @@ export const AppStateContextStore:FC<IAppStateContextStore>= ({ children }) => {
     setisLoading(true)
     try {
       const result = await getUserData(token)
-      console.log(result)
       setuserData(result?.data)
       setisLoading(false)
     } catch (e: any) {
-      console.log("Error", e?.response?.data?.error?.message)
       setisLoading(false)
       router.push(ERoutes.LOGIN)
     }

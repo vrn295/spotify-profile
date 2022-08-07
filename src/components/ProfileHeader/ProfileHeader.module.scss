@@ -3,8 +3,17 @@
 .profile_img {
   @include flex(column, center, center);
   @include align-box(95%, 50%);
+  @include l_mobile {
+    @include align-box(120%, 50%);
+  }
   img {
-    border-radius: 5px;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    @include l_mobile {
+      width: 150px;
+      height: 150px;
+    }
   }
   h1 {
     font-size: 1.8rem;
@@ -12,6 +21,10 @@
     margin: 0;
     min-width: 180px;
     min-height: 35px;
+    text-align: center;
+    @include l_mobile {
+      font-size: 1.5rem;
+    }
   }
 }
 .profile_name {

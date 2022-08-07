@@ -11,6 +11,14 @@
   max-height: 48rem;
   overflow: scroll;
   @include remove-scroll;
+  @include l_tablet {
+    height: 100%;
+    max-height: unset;
+    &_container {
+      width: 85vw;
+      margin-top: 4rem;
+    }
+  }
 }
 
 .container {
@@ -21,5 +29,9 @@
   margin-top: 5rem;
   h2 {
     font-weight: 400;
+  }
+  @include l_tablet {
+    @include flex(column, center, flex-start);
+    margin-top: 2rem;
   }
 }

@@ -20,15 +20,15 @@ const SongCard: FC<ISongCardProps> = ({
 
       <Loader isLoading={isLoading}>
         <div className={styles.container_main}>
-          <Image
-            src={cover}
-            width='50'
-            height='50'
-            layout="fixed"
-            objectFit="cover"
-            placeholder='blur'
-            blurDataURL={cover}
-          />
+          <div className={styles.container_main_img}>
+            <Image
+              src={cover}
+              layout="fill"
+              objectFit="cover"
+              placeholder='blur'
+              blurDataURL={cover}
+            />
+          </div>
           <main>
             <h4>{title}</h4>
             <p>{artist}</p>

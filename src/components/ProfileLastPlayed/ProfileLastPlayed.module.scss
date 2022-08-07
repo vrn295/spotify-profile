@@ -8,6 +8,10 @@
     max-height: 48rem;
     position: relative;
     position: relative;
+    @include l_tablet {
+      width: 85vw;
+      height: 85vw;
+    }
     &::before {
       content: "";
       @include align-box;
@@ -17,6 +21,11 @@
       z-index: 1;
       transition: 0.25s ease-in-out;
       border-radius: 50%;
+      @include l_tablet {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+      }
     }
     &:hover {
       &::before {
@@ -27,6 +36,9 @@
       .profile_last_played_play {
         button {
           font-size: 8rem;
+          @include l_tablet {
+            font-size: 6rem;
+          }
         }
       }
     }
@@ -43,6 +55,9 @@
       cursor: pointer;
       color: $bg-light;
       @include flex();
+      @include l_tablet {
+        font-size: 6rem;
+      }
     }
   }
   main {
@@ -66,13 +81,20 @@
       margin-bottom: 0.5rem;
       text-shadow: 4px 4px 4px rgba($bg-color, 0.5);
       @include underline-animation-custom(6px, yellow);
+      @include l_mobile {
+        font-size: 1.5rem;
+      }
     }
     p {
       width: fit-content;
       margin: 0;
       font-size: 1rem;
+      font-weight: 500;
       text-shadow: 3px 3px 3px rgba($bg-color, 0.5);
       @include underline-animation-custom(3px, yellow);
+      @include l_mobile {
+        font-size: 0.9rem;
+      }
     }
   }
 }

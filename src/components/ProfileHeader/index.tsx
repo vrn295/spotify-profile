@@ -18,8 +18,7 @@ const ProfileHeader:FC<IProfileHeader> = ({ isLoading, setdominatorColor }) => {
       <Loader isLoading={isLoading}>
         <Image
           src={userData?.images[0]?.url || '/images/home/adele_cover.jpg'}
-          width='180'
-          height='180'
+          layout='fill'
           objectFit="cover"
           placeholder='blur'
           blurDataURL='/images/home/adele_cover.jpg'
