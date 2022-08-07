@@ -24,7 +24,7 @@ const Profile = () => {
 
   return (
       <div className={styles.container}>
-        <main className={styles.container_main} style={{ backgroundColor: dominatorColor }}>
+        <main className={styles.container_main} style={{ backgroundColor: dominatorColor || "#121212" }}>
           <ProfileHeader isLoading={isLoading} setdominatorColor={setdominatorColor} />
         </main>
         <div className={styles.profile_songs}>

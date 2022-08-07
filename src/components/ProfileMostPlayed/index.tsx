@@ -41,9 +41,9 @@ const ProfileMostPlayed = () => {
         <h2>Top Played</h2>
         <section className={styles.profile_most_played}>
           {
-            (mostPlayed?.items?.slice(1) || [...Array(15)]).map((item) => (
+            (mostPlayed?.items?.slice(1) || [...Array(15)]).map((item, index) => (
               <SongCard
-                key={item?.id}
+                key={item?.id || index}
                 title={item?.name}
                 artist={item?.artists[0]?.name}
                 artistUrl={item?.artists[0]?.external_urls?.spotify || ''}
