@@ -37,6 +37,9 @@
   &:hover {
     opacity: 100%;
     --d: 80%;
+    @include l_tablet {
+      --d: 0%
+    }
   }
 }
 
