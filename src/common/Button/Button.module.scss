@@ -8,6 +8,7 @@
   border-radius: 40px;
   font-size: 1.4rem;
   cursor: pointer;
+  transition: 0.3s ease-in-out;
   @include Montserrat;
   &_dark {
     background-color: $bg-color;
@@ -16,5 +17,14 @@
   @include l_mobile {
     font-size: 1rem;
     padding: 0.8rem 2rem;
+  }
+  &_small {
+    font-size: 1rem;
+    padding: 0.8rem 1.6rem;
+    font-weight: 500;
+    @include m_tablet {
+      font-size: 0.75rem;
+      padding: 0.6rem 1.2rem;
+    }
   }
 }

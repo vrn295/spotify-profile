@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { api_route } from '../constants';
+import Router from 'next/router';
+import { api_route, ELocalStorage } from '../constants';
+import { ERoutes } from '../constants/Routes';
 
 export const getUserData = (token: string) => {
   return axios.get(`${api_route}/me`, {
@@ -26,4 +28,27 @@ export const getTopSongs = (token: string, timeRange: string = 'medium_term', li
       'Authorization': `Bearer ${token}`
     }
   });
+}
+
+export const getUserPlaylists = (token: string, userID: string) => {
+  return axios.get(`${api_route}/users/${userID}/playlists`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    }
+  });
+}
+
+export const getCurrectUserPlaylists = (token: string) => {
+  return axios.get(`${api_route}/me/playlists`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    }
+  });
+}
+
+export const handleLogOut = () => {
+  localStorage.removeItem(ELocalStorage.Token)
+  Router.push(ERoutes.HOMEPAGE)
 }
