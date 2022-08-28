@@ -125,3 +125,32 @@
     @content;
   }
 }
+
+
+// animation 
+
+@mixin left-to-right-slide {
+  animation: left-to-right-slide;
+}
+
+@mixin top-to-down-slide {
+  animation: top-to-down-slide;
+}
+
+@keyframes left-to-right-slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes top-to-down-slide {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
