@@ -5,6 +5,9 @@
   margin-top: 12rem;
   width: 85vw;
   max-width: 102rem;
+  &_header{
+    @include flex(row, center, space-between)
+  }
   h2 {
     font-weight: 400;
     // @include l_mobile {

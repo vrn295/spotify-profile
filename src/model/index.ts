@@ -133,3 +133,9 @@ export interface ISongCardProps {
   url: string
   isLoading: boolean
 }
+
+export enum TimeRange {
+  YEARS = 'long_term',
+  SIX_MONTH = 'medium_term',
+  FOUR_WEEK = 'short_term'
+}
