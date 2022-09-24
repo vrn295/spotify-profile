@@ -6,10 +6,19 @@
   @include l_mobile {
     @include align-box(120%, 50%);
   }
-  img {
+  .profile_container {
     border-radius: 50%;
     width: 200px;
     height: 200px;
+    background-color: rgba($color: $bg-light, $alpha: 0.1);
+  }
+  &_container {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    img {
+      border-radius: 50%;
+    }
     @include l_mobile {
       width: 150px;
       height: 150px;

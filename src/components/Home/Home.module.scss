@@ -24,7 +24,7 @@
       width: 100vw;
     }
     @include s_tablet {
-      padding: 0 2rem;
+      padding: 0 1rem;
     }
     h1 {
       color: $bg-color;
@@ -51,6 +51,9 @@
   &_developer {
     font-size: 1.2rem;
     color: $bg-color;
+    @include m_tablet {
+      font-size: 0.8rem
+    }
     a {
       color: $primary-color;
       @include underline-animation;

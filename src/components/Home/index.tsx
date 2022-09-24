@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import Button from '../../common/Button'
@@ -15,12 +16,31 @@ const Home = () => {
         <div className={styles.main_container}>
           <p></p>
           <section>
-            <h1>
+            <motion.h1
+              initial={{ x: "-100%" }}
+              animate={{ x: '0' }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                delay: 0.5,
+                duration: 0.5
+              }}
+            >
               Have a
               Glance At
               Your Profile.
-            </h1>
-            <div className={styles.container_btns}>
+            </motion.h1>
+            <motion.div
+              className={styles.container_btns}
+              initial={{ x: "-100%" }}
+              animate={{ x: '0' }}
+              transition={{
+                type: "spring",
+                stiffness: 80,
+                delay: 0.8,
+                duration: 0.8
+              }}
+            >
               <Link href={ERoutes.LOGIN}>
                 <Button className={styles.container_btn_login} title="Login" />
               </Link>
@@ -29,25 +49,34 @@ const Home = () => {
                   <Button className={styles.container_btns_spotify} title="Open Spotify" isDark />
                 </a>
               </Link>
-            </div>
+            </motion.div>
           </section>
-          <p className={styles.container_developer}>Developed by &nbsp;
+          <motion.p
+            initial={{ x: "-200%" }}
+            animate={{ x: '0' }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              delay: 0.75,
+              duration: 0.5
+            }}
+            className={styles.container_developer}>Developed by &nbsp;
             <a href={portfolio_link} target='_blank'>Varun Kumar</a>
-          </p>
+          </motion.p>
         </div>
       </main>
       <aside>
         <div className={styles.aside_container}>
-          <div className={styles.part_one}>
-            <section className={styles.adele_cover}>
+          <motion.div drag className={styles.part_one}>
+            <motion.section drag className={styles.adele_cover}>
               <Image layout="fill" src="/images/home/adele_cover.jpg" objectFit="cover" placeholder="blur" blurDataURL="/images/home/adele_cover.jpg" />
-            </section>
+            </motion.section>
             <section className={styles.country_cover}>
-              <Image layout="fill" src="/images/home/country_cover.jpg" objectFit="cover" placeholder="blur" blurDataURL="/images/home/adele_cover.jpg" />
+              <Image layout="fill" src="/images/home/country_cover.jpg" objectFit="cover" placeholder="blur" blurDataURL="/images/home/country_cover.jpg" />
             </section>
-          </div>
+          </motion.div>
           <section className={styles.nf_cover}>
-            <Image layout="fill" src="/images/home/nf_cover.jpg" objectFit="cover" placeholder="blur" blurDataURL="/images/home/adele_cover.jpg" />
+            <Image layout="fill" src="/images/home/nf_cover.jpg" objectFit="cover" placeholder="blur" blurDataURL="/images/home/nf_cover.jpg" />
             <span className={styles.nf_cover_text}>Hip Hop Mix</span>
           </section>
         </div>

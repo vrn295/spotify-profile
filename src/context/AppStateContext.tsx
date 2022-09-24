@@ -28,11 +28,15 @@ export const AppStateContextStore:FC<IAppStateContextStore>= ({ children }) => {
     try {
       const result = await getUserData(token)
       setuserData(result?.data)
-      setisLoading(false)
+      setTimeout(() => {
+        setisLoading(false)
+      }, 1000);
       const playlist_data = await getCurrectUserPlaylists(token)
       setuserPlaylist(playlist_data?.data)
     } catch (e: any) {
-      setisLoading(false)
+      setTimeout(() => {
+        setisLoading(false)
+      }, 1000);
       router.push(ERoutes.LOGIN)
     }
   }

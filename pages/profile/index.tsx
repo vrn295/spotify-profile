@@ -9,11 +9,11 @@ import TopArtists from '../../src/components/TopArtists'
 import ProfileMostPlayed from '../../src/components/ProfileMostPlayed'
 import Navbar from '../../src/components/Navbar'
 import Seo from '../../src/common/Seo'
-
+import SpotifyLoader from "../../src/common/SpotifyLoader"
 const Profile = () => {
   const router = useRouter()
   const { handleUserDataCall, userData } = useContext(AppStateContext)
-  const [isLoading, setisLoading] = useState(false)
+  const [isLoading, setisLoading] = useState(true)
   const [dominatorColor, setdominatorColor] = useState('')
 
   useEffect(() => {
@@ -24,18 +24,28 @@ const Profile = () => {
     }
   }, [])
 
+
+
+
   return (
-      <div className={styles.container}>
-        <Navbar />
-        <Seo title={userData?.display_name || 'Profile'} />
-        <main className={styles.container_main} style={{ backgroundColor: dominatorColor || "#121212" }}>
-          <ProfileHeader isLoading={isLoading} setdominatorColor={setdominatorColor} />
-        </main>
-        <div className={styles.profile_songs}>
-          <TopArtists />
-          <ProfileMostPlayed />
-        </div>
-      </div>
+    <div className={styles.container}>
+      <Navbar />
+      <Seo title={userData?.display_name || 'Profile'} />
+      {
+        isLoading ?
+          <SpotifyLoader /> 
+        :
+          <>
+            <main className={styles.container_main} style={{ backgroundColor: dominatorColor || "#121212" }}>
+              <ProfileHeader isLoading={isLoading} setdominatorColor={setdominatorColor} />
+            </main>
+            <div className={styles.profile_songs}>
+              <TopArtists />
+              <ProfileMostPlayed />
+            </div>
+          </>
+      }
+    </div>
   )
 }
 
