@@ -11,6 +11,10 @@
     width: 200px;
     height: 200px;
     background-color: rgba($color: $bg-light, $alpha: 0.1);
+    @include l_mobile {
+      width: 150px;
+      height: 150px;
+    }
   }
   &_container {
     width: 200px;
