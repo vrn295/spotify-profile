@@ -7,25 +7,23 @@ export type AppStateContextType = {
 }
 
 export type UserData = {
-  country: string,
+  country?: string,
   display_name: string,
-  email: string,
-  explicit_content: ExplicitContent,
-  external_urls: {
-    spotify: string
-  },
+  email?: string,
+  explicit_content?: ExplicitContent,
+  external_urls: ExternalUrls,
   followers: Followers,
   href: string,
   id: string,
-  images: Image[],
-  product: string,
+  images?: Image[],
+  product?: string,
   type: string,
   uri: string
 }
 
 export type ExplicitContent = {
-  filter_enabled: true,
-  filter_locked: true
+  filter_enabled: boolean,
+  filter_locked: boolean
 }
 
 export type Image = {
@@ -132,6 +130,43 @@ export interface ISongCardProps {
   audioUrl: string
   url: string
   isLoading: boolean
+}
+
+export interface Playlists {
+  href: string
+  limit: number,
+  next: string | null,
+  offset: number,
+  previous: string | null,
+  total: number
+  items: Playlist[]
+}
+
+export interface Playlist {
+  collaborative: boolean,
+  description: string,
+  external_urls: ExternalUrls,
+  followers: Followers,
+  href: string,
+  id: string,
+  images: Image[],
+  name: string,
+  owner: UserData,
+  public: boolean,
+  snapshot_id: string,
+  tracks: Tracks,
+  type: string,
+  uri: string
+}
+
+export interface Tracks {
+  href: string,
+  items: Array<any>,
+  limit: number,
+  next: string,
+  offset: number,
+  previous: string,
+  total: number
 }
 
 export enum TimeRange {

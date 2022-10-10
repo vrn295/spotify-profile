@@ -10,6 +10,7 @@ import ProfileMostPlayed from '../../src/components/ProfileMostPlayed'
 import Navbar from '../../src/components/Navbar'
 import Seo from '../../src/common/Seo'
 import SpotifyLoader from "../../src/common/SpotifyLoader"
+import CurrentUserPlaylist from '../../src/components/CurrentUserPlaylist'
 const Profile = () => {
   const router = useRouter()
   const { handleUserDataCall, userData } = useContext(AppStateContext)
@@ -23,9 +24,6 @@ const Profile = () => {
       router.push(ERoutes.LOGIN)
     }
   }, [])
-
-
-
 
   return (
     <div className={styles.container}>
@@ -42,6 +40,7 @@ const Profile = () => {
             <div className={styles.profile_songs}>
               <TopArtists />
               <ProfileMostPlayed />
+              <CurrentUserPlaylist />
             </div>
           </>
       }

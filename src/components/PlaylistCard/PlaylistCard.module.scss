@@ -1,0 +1,20 @@
+@import "/styles/index.scss";
+
+.container {
+  .img_container {
+    @include box(12.5rem);
+    position: relative;
+    @include m_tablet {
+      @include box(10rem);
+    }
+    img {
+      border-radius: 10px;
+    }
+  }
+  .playlist_name {
+    font-weight: 500;
+  }
+  &:not(&:last-child) {
+    margin-right: 2rem;
+  }
+}

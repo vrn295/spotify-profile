@@ -1,0 +1,18 @@
+@import "/styles/index.scss";
+
+.container {
+  margin: auto;
+  margin-top: 5rem;
+  width: 85vw;
+  max-width: 102rem;
+  h2 {
+    font-weight: 400;
+    font-size: 1.8rem
+  }
+  .list_container {
+    @include flex(row, flex-start, flex-start);
+    overflow-x: scroll;
+    overflow-y: hidden;
+    @include remove-scroll;
+  }
+}

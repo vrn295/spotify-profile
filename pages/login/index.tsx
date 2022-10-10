@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import SpotifyLoader from "../../src/common/SpotifyLoader";
 import { ELocalStorage } from "../../src/constants";
 import { ERoutes } from "../../src/constants/Routes";
 import { getUserData } from "../../src/services/services";
@@ -22,7 +23,7 @@ const Login = () => {
     var state = generateRandomString(16);
 
     // localStorage.setItem(stateKey, state);
-    var scope = 'user-read-private user-read-email user-top-read';
+    var scope = 'user-read-private user-read-email user-top-read playlist-read-private streaming';
 
     var url = 'https://accounts.spotify.com/authorize';
     url += '?response_type=token';
@@ -62,6 +63,7 @@ const Login = () => {
 
   return (
     <div>
+      <SpotifyLoader />
     </div>
   )
 }

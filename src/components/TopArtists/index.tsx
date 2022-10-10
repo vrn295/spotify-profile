@@ -6,6 +6,7 @@ import { ELocalStorage } from '../../constants'
 import { IArtists, ArtistItem, TimeRange } from '../../model'
 import { getTopArtists } from '../../services/services'
 import styles from './TopArtists.module.scss'
+import { moveTop, moveTopTransition } from '../../constants/framerAnimations'
 const TopArtists = () => {
   const [isLoading, setisLoading] = useState(false)
   const [topArtists, settopArtists] = useState<IArtists>()
@@ -37,34 +38,11 @@ const TopArtists = () => {
         {
           (topArtists?.items || [...Array(15)])?.map((item: ArtistItem, index) => (
             <motion.a
-              // variants={itemVariant} 
-              // initial={{
-              //   y: 20,
-              //   opacity: 0
-              // }}
-              // animate={{
-              //   y: 0,
-              //   opacity: 1
-              // }}
               initial="hidden"
               whileInView="visible"
               // viewport={{ once: true }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                // delay: 0.5,
-                duration: 0.5
-              }}
-              variants={{
-                visible: {
-                  y: 0,
-                  opacity: 1
-                },
-                hidden: {
-                  y: 30,
-                  opacity: 0
-                }
-              }}
+              transition={moveTopTransition}
+              variants={moveTop}
               className={styles.profile_top_artist_list} key={item?.id || index}
               href={item?.external_urls?.spotify}
               target="_blank"
