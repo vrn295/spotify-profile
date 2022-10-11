@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
-import { ELocalStorage } from "../constants";
-import { ERoutes } from "../constants/Routes";
-import { getUserData } from "../services/services";
-import { generateRandomString } from "../utils";
+import { ELocalStorage } from "../../constants";
+import { ERoutes } from "../../constants/Routes";
+import { getUserData } from "../../services/services";
+import { generateRandomString } from "../../utils";
 
 const useLoginView = () => {
   const router = useRouter();

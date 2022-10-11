@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export const generateRandomString = (length: number) => {
   var result = "";
   var characters =
@@ -8,3 +10,9 @@ export const generateRandomString = (length: number) => {
   }
   return result;
 };
+
+export const conditionRendering = (
+  trueComponents: ReactNode,
+  falseComponent: ReactNode,
+  condition
+) => (condition ? trueComponents : falseComponent);

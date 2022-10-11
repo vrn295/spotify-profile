@@ -1,51 +1,26 @@
-import React, { useContext, useEffect, useState } from 'react'
-import styles from "./Profile.module.scss"
-import { useRouter } from 'next/router'
-import { ELocalStorage } from '../../src/constants'
-import { ERoutes } from '../../src/constants/Routes'
-import { AppStateContext } from '../../src/context/AppStateContext'
-import ProfileHeader from '../../src/components/ProfileHeader'
-import TopArtists from '../../src/components/TopArtists'
-import ProfileMostPlayed from '../../src/components/ProfileMostPlayed'
-import Navbar from '../../src/components/Navbar'
-import Seo from '../../src/common/Seo'
-import SpotifyLoader from "../../src/common/SpotifyLoader"
-import CurrentUserPlaylist from '../../src/components/CurrentUserPlaylist'
-const Profile = () => {
-  const router = useRouter()
-  const { handleUserDataCall, userData } = useContext(AppStateContext)
-  const [isLoading, setisLoading] = useState(true)
-  const [dominatorColor, setdominatorColor] = useState('')
+import React, { useContext, useEffect } from "react";
+import { AppStateContext } from "../../src/context/AppStateContext";
+import Profile from "../../src/components/Profile";
+import Navbar from "../../src/components/Navbar";
+import Seo from "../../src/common/Seo";
+import SpotifyLoader from "../../src/common/SpotifyLoader";
+import useProfileView from "../../src/hooks/view/useProfileView";
+import { conditionRendering } from "../../src/utils";
+const index = () => {
+  const { userData } = useContext(AppStateContext);
+  const { handleUserData, isLoading } = useProfileView();
 
   useEffect(() => {
-    if (localStorage.getItem(ELocalStorage.Token)) {
-      handleUserDataCall(localStorage.getItem(ELocalStorage.Token) || '', setisLoading)
-    } else {
-      router.push(ERoutes.LOGIN)
-    }
-  }, [])
+    handleUserData();
+  }, []);
 
   return (
-    <div className={styles.container}>
+    <div>
       <Navbar />
-      <Seo title={userData?.display_name || 'Profile'} />
-      {
-        isLoading ?
-          <SpotifyLoader /> 
-        :
-          <>
-            <main className={styles.container_main} style={{ backgroundColor: dominatorColor || "#121212" }}>
-              <ProfileHeader isLoading={isLoading} setdominatorColor={setdominatorColor} />
-            </main>
-            <div className={styles.profile_songs}>
-              <TopArtists />
-              <ProfileMostPlayed />
-              <CurrentUserPlaylist />
-            </div>
-          </>
-      }
+      <Seo title={userData?.display_name || "Profile"} />
+      {conditionRendering(<SpotifyLoader />, <Profile />, isLoading)}
     </div>
-  )
-}
+  );
+};
 
-export default Profile
+export default index;

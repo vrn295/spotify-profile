@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import SpotifyLoader from "../../src/common/SpotifyLoader";
-import useLoginView from "../../src/hooks/useLoginView";
+import useLoginView from "../../src/hooks/view/useLoginView";
 
 const Login = () => {
   const router = useRouter();
