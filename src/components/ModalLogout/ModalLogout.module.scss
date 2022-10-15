@@ -1,0 +1,41 @@
+@import "/styles/index.scss";
+
+.container {  
+  color: $bg-color;
+  @include Montserrat;
+  padding: 3rem;
+  width: 600px;
+  @include flex(column, flex-start ,center );
+  @include m_tablet {
+    width: 90vw;
+    padding: 2rem;
+  }
+  @include s_tablet {
+    padding: 1.5rem;
+  }
+  .heading {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 600;
+    @include m_tablet {
+      font-size: 1.5rem;
+    }
+  }
+  .para {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    @include m_tablet {
+      font-size: 1rem;
+    }
+  }
+  .btn_container {
+    @include flex(row, center, flex-start );
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    @include s_tablet {
+      gap: 0.65rem;
+      margin-top: 0.5rem;
+    }
+  }
+}
