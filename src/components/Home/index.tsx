@@ -12,7 +12,15 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <Seo />
-      <main>
+      <motion.main
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 60,
+          duration: 0.2
+        }}
+      >
         <div className={styles.main_container}>
           <p></p>
           <section>
@@ -64,9 +72,19 @@ const Home = () => {
             <a href={portfolio_link} target='_blank'>Varun Kumar</a>
           </motion.p>
         </div>
-      </main>
-      <aside>
-        <div className={styles.aside_container}>
+      </motion.main>
+      <aside
+      >
+        <motion.div className={styles.aside_container}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            delay: 0.3,
+            duration: 0.5
+          }}
+        >
           <motion.div drag className={styles.part_one}>
             <motion.section drag className={styles.adele_cover}>
               <Image layout="fill" src="/images/home/adele_cover.jpg" objectFit="cover" placeholder="blur" blurDataURL="/images/home/adele_cover.jpg" />
@@ -79,7 +97,7 @@ const Home = () => {
             <Image layout="fill" src="/images/home/nf_cover.jpg" objectFit="cover" placeholder="blur" blurDataURL="/images/home/nf_cover.jpg" />
             <span className={styles.nf_cover_text}>Hip Hop Mix</span>
           </section>
-        </div>
+        </motion.div>
       </aside>
     </div>
   )

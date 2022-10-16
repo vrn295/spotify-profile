@@ -19,6 +19,7 @@
     background-color: $bg-light;
     width: 60%;
     padding: 0 4rem;
+    transform-origin: left; 
     @include flex(column, flex-start, space-between);
     @include s_desktop {
       width: 100vw;
